@@ -1,7 +1,7 @@
 import asyncio
 import os
 import discord
-import youtube_dl_api_server
+import youtube_dl
 
 
 client = discord.Client()
