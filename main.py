@@ -125,6 +125,5 @@ async def on_message(message: discord.Message):
         await message.channel.send("ストップしました。")
 
 
-keep_alive.keep_alive()
 token = os.environ['DISCORD_BOT_TOKEN']
 client.run(token)
