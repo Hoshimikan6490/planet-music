@@ -123,5 +123,5 @@ async def on_message(message: discord.Message):
 
 
 keep_alive.keep_alive()
-token = os.environ.get("TOKEN")
+token = os.environ['DISCORD_BOT_TOKEN']
 client.run(token)
