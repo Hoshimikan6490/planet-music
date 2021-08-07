@@ -1,8 +1,11 @@
 import asyncio
 import os
 import discord
-import keep_alive
 import youtube_dl
+from discord.ext import commands
+import traceback
+import urllib.parse
+import re
 
 client = discord.Client()
 
