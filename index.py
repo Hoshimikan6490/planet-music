@@ -69,10 +69,10 @@ async def on_message(message: discord.Message):
     if message.author.bot:
         return
 
-    if message.content == "pb!help":
+    if message.content == "pm!help":
         await message.channel.send("`pb!join`であなたの居るVCに参加します。\n`pb!play [youtubeURL]`でyoutubeURLの音楽を再生します。\n`pb!stop`で曲の再生を停止します。\n`pb!dc`でVCから去ります。")
 
-    if message.content == "pb!join":
+    if message.content == "pm!join":
         if message.author.voice is None:
             await message.channel.send("あなたはボイスチャンネルに接続していません。")
             return
@@ -80,7 +80,7 @@ async def on_message(message: discord.Message):
         await message.author.voice.channel.connect()
         await message.channel.send("接続しました。")
 
-    elif message.content == "pb!dc":
+    elif message.content == "pm!dc":
         if message.guild.voice_client is None:
             await message.channel.send("接続していません。")
             return
@@ -89,7 +89,7 @@ async def on_message(message: discord.Message):
         await message.guild.voice_client.disconnect()
 
         await message.channel.send("切断しました。")
-    elif message.content.startswith("pb!play "):
+    elif message.content.startswith("pm!play "):
         if message.guild.voice_client is None:
             await message.channel.send("接続していません。")
             return
@@ -107,7 +107,7 @@ async def on_message(message: discord.Message):
 
         await message.channel.send('{} を再生します。'.format(player.title))
 
-    elif message.content == "pb!stop":
+    elif message.content == "pm!stop":
         if message.guild.voice_client is None:
             await message.channel.send("接続していません。")
             return
