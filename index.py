@@ -3,17 +3,15 @@ import os
 import discord
 import youtube_dl
 
-
 client = discord.Client()
 
 
 @client.event
-async def on_ready(): # botが起動したときに動作する処理
+async def on_ready():  # botが起動したときに動作する処理
     print('<ログインしました>')
     await client.change_presence(activity=discord.Game(name="音楽BOT", type=1))
     print('Discordのバージョンはこちら👇')
     print(discord.__version__)
-
 
 
 # Suppress noise about console usage from errors
@@ -70,7 +68,9 @@ async def on_message(message: discord.Message):
         return
 
     if message.content == "pm!help":
-        await message.channel.send("`pb!join`であなたの居るVCに参加します。\n`pb!play [youtubeURL]`でyoutubeURLの音楽を再生します。\n`pb!stop`で曲の再生を停止します。\n`pb!dc`でVCから去ります。")
+        await message.channel.send(
+            "`pm!join`であなたの居るVCに参加します。\n`pm!play [youtubeURL]`でyoutubeURLの音楽を再生します。\n`pm!stop`で曲の再生を停止します。\n`pm!dc`でVCから去ります。"
+        )
 
     if message.content == "pm!join":
         if message.author.voice is None:
