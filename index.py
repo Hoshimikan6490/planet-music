@@ -14,7 +14,7 @@ async def on_ready():  # botが起動したときに動作する処理
     print(discord.__version__)
 
 
-# Suppress noise about console usage from errors
+# エラーからコンソール使用に関するノイズを抑制する
 youtube_dl.utils.bug_reports_message = lambda: ''
 
 ytdl_format_options = {
@@ -29,7 +29,7 @@ ytdl_format_options = {
     'no_warnings': True,
     'default_search': 'auto',
     'source_address':
-    '0.0.0.0'  # bind to ipv4 since ipv6 addresses cause issues sometimes
+    '0.0.0.0'  # ipv6アドレスは時々問題を起こすので、ipv4にバインドする。
 }
 
 ffmpeg_options = {'options': '-vn'}
@@ -53,7 +53,7 @@ class YTDLSource(discord.PCMVolumeTransformer):
             None, lambda: ytdl.extract_info(url, download=not stream))
 
         if 'entries' in data:
-            # take first item from a playlist
+            # プレイリストの最初の項目を取得する
             data = data['entries'][0]
 
         filename = data['url'] if stream else ytdl.prepare_filename(data)
