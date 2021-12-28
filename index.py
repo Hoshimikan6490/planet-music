@@ -10,6 +10,8 @@ client = discord.Client()
 async def on_ready():  # botが起動したときに動作する処理
     print('<ログインしました>')
     await client.change_presence(activity=discord.Game(name="音楽BOT", type=1))
+    channel = client.get_channel(889486664760721418)
+     await channel.send('起動しました！')
     print('Discordのバージョンはこちら👇')
     print(discord.__version__)
 
